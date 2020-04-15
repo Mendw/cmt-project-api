@@ -2,6 +2,7 @@ from rest_framework import serializers
 from banned_list.models import BannedEntity, Alias
 from rest_framework import generics
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
 class AliasSerializer(serializers.ModelSerializer):
@@ -21,11 +22,15 @@ class BannedEntitySerializer(serializers.ModelSerializer):
 
 class SignupSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=150)
-    password = serializers.CharField(max_length=256)
+    password1 = serializers.CharField(max_length=128, style={'input_type': 'password'})
+    password2 = serializers.CharField(max_length=128, style={'input_type': 'password'})
+
+    form = UserCreationForm
 
     def create(self, validated_data):
-        password = validated_data.pop('password').lower()
-        return User.objects.create_user(password=password, **validated_data)
+        validated_data['password1'] = validated_data['password1'].lower()
+        validated_data['password2'] = validated_data['password2'].lower()
+        self.form(data=validated_data).save()
 
 
 class UserSerializer(serializers.ModelSerializer):

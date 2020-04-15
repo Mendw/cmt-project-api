@@ -29,6 +29,22 @@ class Index(APIView):
             'name': 'User Detail',
             'description': 'Returns details from an user, request must be from that user or a superuser',
             'url': '/users/<id>'
+        }, {
+            'name': 'Login',
+            'description': 'Returns an User\'s token when POST-ed its username and password. Password is case-insensitive',
+            'url': '/auth'
+        }, {
+            'name': 'Logout',
+            'description': 'Logs the current user out',
+            'url': '/auth/logout'
+        }, {
+            'name': 'Sign Up',
+            'description': 'Creates a new User when POST-ed a unique username and a password twice. Password is case-insensitive',
+            'url': '/auth/signup'
+        }, {
+            'name': 'Password Change',
+            'description': 'Changes the curren user\'s password when POST-ed the current password (as old_password) and the new password twice(as new_password1 and new password2)',
+            'url': '/auth/password-change'
         }])
 
 
@@ -60,7 +76,6 @@ class UserDetail(generics.RetrieveAPIView):
 class SignUpView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = SignupSerializer
-
 
 class LoginView(LoginView_):
     def post(self, request, *args, **kwargs):

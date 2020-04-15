@@ -80,7 +80,7 @@ class SignUpView(generics.CreateAPIView):
 class LoginView(LoginView_):
     def post(self, request, *args, **kwargs):
         self.request = request
-        data = self.request.data
+        data = self.request.data.copy()
         if data and 'password' in data:
             data['password'] = data['password'].lower()
 
@@ -94,7 +94,7 @@ class LoginView(LoginView_):
 
 class PasswordChangeView(PasswordChangeView_):
     def post(self, request, *args, **kwargs):
-        data = request.data
+        data = request.data.copy()
 
         if data:
             if 'old_password' in data:

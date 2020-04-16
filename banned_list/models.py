@@ -8,6 +8,10 @@ class BannedEntity(models.Model):
     is_sanctioned = models.BooleanField()
     extra_info = models.TextField(null=True)
 
+    class Meta:
+        verbose_name = 'Banned Entity'
+        verbose_name_plural = "Banned Entities"
+
 class Alias(models.Model):
     alias = models.CharField(max_length=255)
     banned = models.ForeignKey( 

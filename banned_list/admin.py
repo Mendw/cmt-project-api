@@ -1,7 +1,17 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
+from banned_list.models import DataList, Parser
 
-from .models import BannedEntity, Alias
-# Register your models here.
+class CMTAdminSite(admin.AdminSite):
+    site_header = 'CMT Administration'
+    site_url = "https://www.compliance-mt.com"
 
-admin.site.register(BannedEntity)
-admin.site.register(Alias)
+class ParserAdmin(admin.ModelAdmin):
+    fields = ('name', 'active')
+
+admin_site = CMTAdminSite(name='cmtadmin')
+admin_site.register(User, UserAdmin)
+admin_site.register(Parser, ParserAdmin)
+
+admin_site.register(DataList)

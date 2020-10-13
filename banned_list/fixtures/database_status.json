@@ -1,0 +1,9 @@
+[
+  {
+    "model": "banned_list.databasestatus",
+    "pk": 1,
+    "fields": {
+      "is_available": true
+    }
+  }
+]

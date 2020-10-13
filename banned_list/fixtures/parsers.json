@@ -1,0 +1,72 @@
+[
+    {
+      "model": "banned_list.parser",
+      "pk": 1,
+      "fields": {
+        "class_name": "ConsolidatedListParser",
+        "name": "Consolidated List",
+        "reusable": false,
+        "active": true
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 2,
+      "fields": {
+        "class_name": "ConsolidatedParser",
+        "name": "Consolidated",
+        "reusable": false,
+        "active": true
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 3,
+      "fields": {
+        "class_name": "EUParser",
+        "name": "European Union",
+        "reusable": false,
+        "active": true
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 4,
+      "fields": {
+        "class_name": "SDNAdvancedIterParser",
+        "name": "SDN Advanced",
+        "reusable": false,
+        "active": true
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 5,
+      "fields": {
+        "class_name": "SDNAdvancedParser",
+        "name": "SDN Advanced (Legacy)",
+        "reusable": false,
+        "active": false
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 6,
+      "fields": {
+        "class_name": "SemaLmesParser",
+        "name": "Sema LMES Parser",
+        "reusable": false,
+        "active": true
+      }
+    },
+    {
+      "model": "banned_list.parser",
+      "pk": 7,
+      "fields":{
+        "class_name": "JSONParser",
+        "name": "Other (JSON)",
+        "reusable": true,
+        "active": true
+      }
+    }
+  ]
